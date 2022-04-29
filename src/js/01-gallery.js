@@ -25,19 +25,17 @@ function onGalleryImageContainerClick(evt) {
     evt.preventDefault();
     
   if (!evt.target.classList.contains('gallery__image')) {
-    return 
+    return; 
   }
-   
-    const selectedImg = evt.target;
-    const selectedImgLink = evt.target.closest('.gallery__link')
-    
-    selectedImg.src = selectedImgLink.href; 
+  // const selectedImg = evt.target;
+  // const selectedImgLink = evt.target.closest('.gallery__link')
+  // selectedImg.src = selectedImgLink.href; 
 };
 
-galleryImageContainer.onclick = () => {
+galleryImageContainer.onclick = (evt) => {
 
 	basicLightbox.create(`
-		<img width="1400" height="900" src="${onGalleryImageContainerClick}">
+		<img width="1400" height="900" src="${evt.target.dataset.source}">
 	`).show()
 
 }
