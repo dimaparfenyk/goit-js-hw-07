@@ -25,7 +25,7 @@ galleryImageContainer.onclick = (evt) => {
    if (!evt.target.classList.contains('gallery__image')) {
     return
   }
-  console.log(evt.target.nodeName)
+  
 	basicLightbox.create(`
 		<img width="1400" height="900" src="${evt.target.dataset.source}">
 	`).show()
