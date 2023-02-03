@@ -31,7 +31,6 @@ import { galleryItems } from './gallery-items.js';
 // 	`).show()
 // }
 
-
 const galleryList = document.querySelector(".gallery");
 
 const createGalleryMarkup = items => items
@@ -52,23 +51,29 @@ const galleryMarkup = createGalleryMarkup(galleryItems);
 galleryList.insertAdjacentHTML("beforeend", galleryMarkup);
 
 const onSliderHandler = (e) => {
+  e.preventDefault();
+
   const src = e.target.dataset.source;
   
   if (!src) {
     return;
   };
+
   const slider = basicLightbox.create(`
-    <img src="${src}" width="1400" height="900">
-`);
+    <img src="${src}" width="1400" height="900">`);
     
   slider.show();
+  closeSliderByEsc(slider);
+};
+
+const closeSliderByEsc = slider => {
+  window.document.addEventListener('keydown', e => {
+    if (basicLightbox.visible() && e.code === "Escape") {
+      slider.close()
+    }}
+  );
 };
 
 galleryList.addEventListener('click', onSliderHandler);
-
-
-
-
-
 
 

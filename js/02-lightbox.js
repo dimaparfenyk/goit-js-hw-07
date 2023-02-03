@@ -1,5 +1,5 @@
-// import { galleryItems } from './gallery-items.js';
-// // Change code below this line
+import { galleryItems } from './gallery-items.js';
+
 // const galleryImageContainer = document.querySelector('.gallery');
 
 // function createListGalleryItems(items) {
